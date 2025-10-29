@@ -1,0 +1,211 @@
+{
+  "customerAccounts": {
+    "9876543210": {
+      "name": "Rohan Sharma",
+      "isPostpaid": false,
+      "accountStatus": "Active",
+      "planName": "₹299 Unlimited",
+      "planValidityExpires": "2025-11-08",
+      "dataBalance": "1.25 GB / 2 GB remaining today",
+      "talktimeBalance": "₹0.00 (Unlimited Calls)",
+      "dndStatus": "Inactive"
+    },
+    "9123456789": {
+      "name": "Priya Patel",
+      "isPostpaid": false,
+      "accountStatus": "Active",
+      "planName": "₹719 Unlimited",
+      "planValidityExpires": "2025-12-18",
+      "dataBalance": "150 MB / 2 GB remaining today",
+      "talktimeBalance": "₹0.00 (Unlimited Calls)",
+      "dndStatus": "Inactive"
+    },
+    "9988776655": {
+      "name": "Amit Singh",
+      "isPostpaid": false,
+      "accountStatus": "GracePeriod",
+      "planName": "₹179 Unlimited (Expired)",
+      "planValidityExpires": "2025-10-27",
+      "dataBalance": "0 MB / 0 MB",
+      "talktimeBalance": "₹0.00",
+      "dndStatus": "Inactive"
+    },
+    "8877665544": {
+      "name": "Dr. Ananya Reddy",
+      "isPostpaid": true,
+      "accountStatus": "Active",
+      "planName": "Postpaid ₹599 Family",
+      "billDueDate": "2025-11-05",
+      "unbilledAmount": "₹245.50",
+      "dataBalance": "45.2 GB / 75 GB monthly quota",
+      "dndStatus": "Inactive"
+    },
+    "7766554433": {
+      "name": "Vikram Kumar",
+      "isPostpaid": false,
+      "accountStatus": "Active",
+      "planName": "Talktime Topup",
+      "planValidityExpires": "2025-11-15",
+      "dataBalance": "0 MB",
+      "talktimeBalance": "₹4.50",
+      "dndStatus": "Active (Full DND)"
+    },
+    "9898989898": {
+      "name": "Sunita Rao",
+      "isPostpaid": false,
+      "accountStatus": "Active",
+      "planName": "₹666 Unlimited + ₹2997 IR Pack",
+      "planValidityExpires": "2025-12-20",
+      "dataBalance": "1.1 GB / 1.5 GB remaining today",
+      "irPackDetails": "10 GB data, 100 mins, valid 30 days",
+      "talktimeBalance": "₹0.00 (Unlimited Calls)",
+      "dndStatus": "Inactive"
+    },
+    "9090909090": {
+      "name": "Karan Mehta",
+      "isPostpaid": false,
+      "accountStatus": "Active",
+      "planName": "₹666 Unlimited",
+      "planValidityExpires": "2026-01-05",
+      "dataBalance": "1.5 GB / 1.5 GB remaining today",
+      "talktimeBalance": "₹0.00 (Unlimited Calls)",
+      "dndStatus": "Active (Promotional)"
+    },
+    "8787878787": {
+      "name": "Ayesha Khan",
+      "isPostpaid": false,
+      "accountStatus": "Active",
+      "planName": "₹239 Unlimited + 5G Offer",
+      "planValidityExpires": "2025-11-12",
+      "dataBalance": "Unlimited 5G Data (1.5GB 4G backup)",
+      "talktimeBalance": "₹0.00 (Unlimited Calls)",
+      "dndStatus": "Inactive"
+    },
+    "7676767676": {
+      "name": "Deepak Gupta",
+      "isPostpaid": false,
+      "accountStatus": "Inactive",
+      "planName": "No Active Plan",
+      "planValidityExpires": null,
+      "dataBalance": "0 MB",
+      "talktimeBalance": "₹0.00",
+      "dndStatus": "Inactive"
+    },
+    "9797979797": {
+      "name": "Meera Krishnan",
+      "isPostpaid": false,
+      "accountStatus": "Active",
+      "planName": "₹2999 Annual Plan",
+      "planValidityExpires": "2026-08-23",
+      "dataBalance": "2.1 GB / 2.5 GB remaining today",
+      "talktimeBalance": "₹0.00 (Unlimited Calls)",
+      "dndStatus": "Inactive"
+    }
+  },
+  "rechargePlans": {
+    "unlimitedPlans": [
+      {
+        "planID": "UL_239",
+        "price": 239,
+        "validityDays": 28,
+        "data": "1.5 GB/day",
+        "voice": "Unlimited",
+        "smsPerDay": 100,
+        "description": "Popular monthly plan with 1.5GB daily data. Includes 5G Welcome Offer."
+      },
+      {
+        "planID": "UL_299",
+        "price": 299,
+        "validityDays": 28,
+        "data": "2 GB/day",
+        "voice": "Unlimited",
+        "smsPerDay": 100,
+        "description": "Best-selling monthly plan with 2GB daily data."
+      },
+      {
+        "planID": "UL_666",
+        "price": 666,
+        "validityDays": 84,
+        "data": "1.5 GB/day",
+        "voice": "Unlimited",
+        "smsPerDay": 100,
+        "description": "Quarterly plan with 1.5GB daily data. Great value."
+      },
+      {
+        "planID": "UL_719",
+        "price": 719,
+        "validityDays": 84,
+        "data": "2 GB/day",
+        "voice": "Unlimited",
+        "smsPerDay": 100,
+        "description": "Heavy-use quarterly plan with 2GB daily data."
+      },
+      {
+        "planID": "UL_2999",
+        "price": 2999,
+        "validityDays": 365,
+        "data": "2.5 GB/day",
+        "voice": "Unlimited",
+        "smsPerDay": 100,
+        "description": "Annual plan for long-term users. 2.5GB daily data."
+      }
+    ],
+    "dataAddOns": [
+      {
+        "planID": "DATA_19",
+        "price": 19,
+        "validityDays": 1,
+        "data": "1 GB",
+        "description": "1GB data valid for 1 day."
+      },
+      {
+        "planID": "DATA_61",
+        "price": 61,
+        "validityDays": -1,
+        "data": "6 GB",
+        "description": "6GB data, valid until your active base plan expires."
+      },
+      {
+        "planID": "DATA_121",
+        "price": 121,
+        "validityDays": -1,
+        "data": "12 GB",
+        "description": "12GB data, valid until your active base plan expires."
+      }
+    ],
+    "talktimeTopUps": [
+      {
+        "planID": "TT_20",
+        "price": 20,
+        "talktimeValue": 14.95,
+        "description": "Get ₹14.95 talktime. No service validity."
+      },
+      {
+        "planID": "TT_100",
+        "price": 100,
+        "talktimeValue": 81.75,
+        "description": "Get ₹81.75 talktime. No service validity."
+      }
+    ],
+    "internationalRoaming": [
+      {
+        "planID": "IR_2997",
+        "price": 2997,
+        "validityDays": 30,
+        "data": "10 GB",
+        "voice": "100 minutes",
+        "description": "IR pack for 30 countries. 10GB data and 100 minutes of calls."
+      }
+    ]
+  },
+  "generalFAQs": {
+    "faq_check_balance": "You can check your balance, data usage, and plan validity anytime on the [Operator] Thanks App. You can also dial the USSD code *121# from your phone.",
+    "faq_caller_tune": "You can set your Caller Tune using the [Operator] Wynk Music app. You can search for songs and set your favorite tune. You get one free tune change every 30 days with most unlimited plans.",
+    "faq_dnd": "To activate Do Not Disturb (DND), you can send an SMS with the message 'START 0' to 1909. You can also manage your DND preferences in the [Operator] Thanks App under 'Settings'.",
+    "faq_puk_code": "Your PUK code is an 8-digit security code used to unlock your SIM if you enter the wrong PIN 3 times. You can find the PUK code on your original SIM card holder. If you have lost it, please log in to your account on our website or use the [Operator] Thanks App. For security, we cannot provide this over an automated call.",
+    "faq_slow_internet": "If your internet is slow, please try these steps: 1. Restart your phone. 2. Check if you have used up your daily high-speed data quota. You can check this in the [Operator] Thanks App. 3. Go to your phone's network settings and make sure 4G or 5G is selected. 4. Try toggling airplane mode on and then off.",
+    "faq_port_out_mnp": "We are sorry to see you go. To port your number to another operator, please send an SMS from your number. Type 'PORT' followed by a space and your 10-digit mobile number, and send it to 1900. You will receive a Unique Porting Code, or UPC, which is valid for 4 days. Please share this code with your new operator to complete the process.",
+    "faq_lost_sim": "If you have lost your SIM card, please report it immediately to block it and prevent misuse. You can do this through the 'Help' section of our app, by logging into our website, or by calling customer care from any number. You can then get a new SIM with the same number from any [Operator] Store. Please remember to bring your Aadhar card or other valid ID for verification.",
+    "faq_billing_issue_postpaid": "I can help with that. For any issues with your postpaid bill, please tell me the date of the bill and the charge you are concerned about. We can register a complaint for you. If you are not satisfied with the resolution, you can appeal to our Nodal officer. This is a two-step grievance process as per TRAI guidelines."
+  }
+}
