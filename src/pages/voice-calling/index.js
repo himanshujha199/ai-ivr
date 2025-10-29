@@ -8,73 +8,86 @@ import { isPublicKeyMissingError } from '../../utils'
 const vapi = new Vapi('9a05e800-6a2e-456b-a8c3-270f0495a201')
 
 const defaultAssistantOptions = {
-  id: 'f61e369b-581c-463a-a893-7e74b0675e39',
+  id: '5b0e2245-21dd-4dbf-98e7-226f80dec5e7',
   orgId: 'b79af8ae-3adf-461a-a7d1-44ce44d4fd7e',
-  name: 'Alex',
+  name: 'Airio',
   voice: {
-    model: 'tts-1',
-    voiceId: 'fable',
-    provider: 'openai'
+    voiceId: 'Rohan',
+    provider: 'vapi'
   },
-  createdAt: '2025-10-28T15:53:39.659Z',
-  updatedAt: '2025-10-29T10:44:08.866Z',
+  createdAt: '2025-10-29T12:06:51.996Z',
+  updatedAt: '2025-10-29T13:14:21.282Z',
   model: {
-    model: 'gemini-2.5-flash',
+    model: 'gpt-4.1',
     messages: [
       {
         role: 'system',
-      content: `[Identity]  
-You are a male multilingual customer service voice assistant for CareerGuide, providing career guidance to new school passouts in India. You adapt your language and tone based on the gender of the customer. but you are a male.
+        content: `[Identity]  
+You are a male multilingual customer support voice assistant for Airio, an Indian telecom company. Your role is to assist users with queries related to balance, validity, data balance, and available recharge facilities. You support all 22 Indian languages along with English.
 
 [Style]  
-- greet (gender-neutral) and ask the name of user,  then only respond user in the inital spoken language
-- Use a warm, empathetic tone that resonates with young adults.
-- Speak clearly and naturally, avoiding overly technical language.
-- Include occasional localized expressions or cultural references to make interactions more relatable.
+- Greet the user in a gender-neutral manner and ask for the user's language preference or name to determine the initial spoken language.
+- Use a warm, friendly tone that resonates with users of all ages.
+- Speak clearly and naturally, emphasizing simplicity to ensure understanding.
+- Include localized expressions or cultural references to make interactions more relatable when suitable.
 
 [Response Guidelines]  
-- Keep responses conversational, adjusting language formality based on user's preference for Hindi, English, bhojpuri Assamese, Bengali, Bodo, Dogri, Gujarati, Kannada, Kashmiri, Konkani, Maithili, Malayalam, Manipuri, Marathi, Nepali, Odia, Punjabi, Sanskrit, Santhali, Sindhi, Tamil, Telugu, and Urdu or other major Indian languages.
-- Ask one question at a time to avoid overwhelming the customer.
-- keep speaking in the language user requested and don't repeat response in any other language like hindi
-- Confirm important information explicitly when needed.
-- Avoid jargon unless the customer shows familiarity.
+- Maintain a conversational and approachable manner, adapting language formality based on user's preference for any of the supported Indian languages or English.
+- Address one query at a time to ensure clarity.
+- Continue responding in the language the user initially requested without switching languages.
+- Confirm important information explicitly when necessary.
+- Avoid technical jargon unless the user indicates familiarity.
 
 [Task & Goals]  
-1. Greet the user based on their identified gender:  
-  - For male: "Hello, sir! How can I assist you with your career today?"
-  - For female: "Hello, ma'am! How can I assist you with your career today?"
-   
-2. Identify career goals and interests through open-ended questions:  
-  - "What career paths are you interested in exploring?"  
-  - < wait for user response >  
+1. Greet the user and inquire about their registration status.  
+   - If not registered, guide them on how to obtain a new connection and provide details for available recharge plans, mentioning only 3-4 plans briefly.
+   - If registered, ask for their phone number to fetch and present their basic details concisely.
 
-3. Provide guidance and options tailored to their interests:  
-  - Offer information on relevant courses, entry-level jobs, and career paths.
-  - Use the 'fetchCareerOptions' tool if needed to pull detailed options.
+2. Once registration status is confirmed, inquire about their preferred language for the conversation.  
+   - Use this language for the rest of the interaction.
 
-4. Confirm understanding and provide additional resources or contact points if necessary.
+3. Address the user's query by identifying the type of information they are seeking:  
+   - Balance, validity, data balance, or recharge details.  
+   - < wait for user response >
+
+4. Provide accurate information and support based on the user's request:  
+   - Use specific tools like 'checkBalance', 'checkValidity', 'dataUsage', or 'rechargeOptions' as needed.
+
+5. Ensure understanding and offer additional assistance if required.
 
 [Error Handling / Fallback]  
-- If the user's input is unclear, ask a clarifying question: "Could you please provide more details on what you're looking for?"
-- If unable to retrieve or provide certain information, apologize politely and suggest alternative sources or next steps: "I'm sorry, I don't have that information right now. You may want to check with our expert counselors for further assistance."`
+- If the user's input is unclear, ask a clarifying question to guide them: "Can you please clarify your request concerning balance, data, or recharges?"
+- If certain information is unavailable, apologize and provide an alternative solution or resource: "I'm sorry, that information is not currently available. Please check our app or website for more details or contact customer support."`
       }
     ],
-    provider: 'google'
+    provider: 'openai',
+    maxTokens: 400,
+    knowledgeBase: {
+      fileIds: ['e56059ee-678e-4497-a7f5-e80bf92b823a'],
+      provider: 'google'
+    }
   },
   forwardingPhoneNumber: '+918766295908',
-  firstMessage: 'Hi there, this is saarthi from careerwise customer support. How can I help you today?',
+  firstMessage: 'Hi there, this is saarthi from Airio customer support. How can I help you today?',
   voicemailMessage:
     "Hello, this is Alex from TechSolutions customer support. I'm sorry we missed your call. Please call us back so we can help resolve your issue.",
   endCallFunctionEnabled: true,
   endCallMessage: "Thank you for choosing TechSolutions. I'm glad I could help you today. Have a great day!",
   transcriber: {
-    model: 'gemini-2.0-flash-lite',
+    model: 'gemini-2.0-flash',
     language: 'Multilingual',
     provider: 'google'
   },
   silenceTimeoutSeconds: 179,
   firstMessageMode: 'assistant-speaks-first-with-model-generated-message',
   backgroundDenoisingEnabled: true,
+  artifactPlan: {
+    transcriptPlan: {
+      enabled: false
+    },
+    recordingEnabled: false,
+    loggingEnabled: false
+  },
   stopSpeakingPlan: {
     numWords: 6,
     voiceSeconds: 0.5
@@ -96,7 +109,15 @@ const buildAssistantPayload = options => {
     endCallFunctionEnabled: options?.endCallFunctionEnabled,
     endCallMessage: options?.endCallMessage,
     backgroundDenoisingEnabled: options?.backgroundDenoisingEnabled,
-    silenceTimeoutSeconds: options?.silenceTimeoutSeconds
+    silenceTimeoutSeconds: options?.silenceTimeoutSeconds,
+    artifactPlan: options?.artifactPlan
+      ? {
+          ...options.artifactPlan,
+          transcriptPlan: options.artifactPlan?.transcriptPlan
+            ? { ...options.artifactPlan.transcriptPlan }
+            : undefined
+        }
+      : undefined
   }
 
   if (!payload.voice) delete payload.voice
@@ -106,6 +127,7 @@ const buildAssistantPayload = options => {
   if (!payload.endCallMessage) delete payload.endCallMessage
   if (typeof payload.backgroundDenoisingEnabled !== 'boolean') delete payload.backgroundDenoisingEnabled
   if (typeof payload.silenceTimeoutSeconds !== 'number') delete payload.silenceTimeoutSeconds
+  if (!payload.artifactPlan) delete payload.artifactPlan
 
   return payload
 }
@@ -154,7 +176,9 @@ const VoiceConsole = () => {
           model: {
             provider: profile.model?.provider ?? prev.model?.provider,
             model: profile.model?.model ?? prev.model?.model,
-            messages: profile.model?.messages?.length ? profile.model.messages : prev.model?.messages
+            messages: profile.model?.messages?.length ? profile.model.messages : prev.model?.messages,
+            maxTokens: profile.model?.maxTokens ?? prev.model?.maxTokens,
+            knowledgeBase: profile.model?.knowledgeBase ?? prev.model?.knowledgeBase
           },
           forwardingPhoneNumber: profile.forwardingPhoneNumber ?? prev.forwardingPhoneNumber,
           voicemailMessage: profile.voicemailMessage ?? prev.voicemailMessage,
@@ -167,6 +191,19 @@ const VoiceConsole = () => {
           endCallMessage: profile.endCallMessage ?? prev.endCallMessage,
           backgroundDenoisingEnabled: profile.backgroundDenoisingEnabled ?? prev.backgroundDenoisingEnabled,
           firstMessageMode: profile.firstMessageMode ?? prev.firstMessageMode,
+          artifactPlan: profile.artifactPlan
+            ? {
+                transcriptPlan: {
+                  enabled:
+                    profile.artifactPlan?.transcriptPlan?.enabled ??
+                    prev.artifactPlan?.transcriptPlan?.enabled
+                },
+                recordingEnabled:
+                  profile.artifactPlan?.recordingEnabled ?? prev.artifactPlan?.recordingEnabled,
+                loggingEnabled:
+                  profile.artifactPlan?.loggingEnabled ?? prev.artifactPlan?.loggingEnabled
+              }
+            : prev.artifactPlan,
           stopSpeakingPlan: profile.stopSpeakingPlan ?? prev.stopSpeakingPlan,
           compliancePlan: profile.compliancePlan ?? prev.compliancePlan,
           isServerUrlSecretSet: profile.isServerUrlSecretSet ?? prev.isServerUrlSecretSet,
@@ -381,11 +418,11 @@ const VoiceConsole = () => {
             fontFamily: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif'
           }}
         >
-          <h1 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '12px' }}>Voice Console</h1>
+          <h1 style={{ fontSize: '1.5rem', fontWeight: 600, marginBottom: '12px' }}>Customer Support</h1>
           <p style={{ marginBottom: '24px', opacity: 0.8 }}>
             {connected
-              ? 'You are talking to the CareerWise assistant.'
-              : 'Start a call to speak with the CareerWise voice assistant.'}
+              ? 'You are talking to the Airio assistant.'
+              : 'Start a call to speak with the Airio voice assistant.'}
           </p>
 
           {profileLoading && <p style={{ marginBottom: '16px', opacity: 0.7 }}>Loading assistant profile…</p>}
